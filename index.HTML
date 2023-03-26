@@ -14,10 +14,21 @@
             <h1>Pick Your Country</h1>    
     </section>
     <section id = "container">
-            <form id = "form">
+            <!-- <form id = "form">
                 <input country="Country" type="text" placeholder="country">
-                <buttontype="submit">submit</buttontype>
-            </form>
+                <button type="button">submit</button>
+            </form> -->
+        <form>
+            <label for="countries">Pick your country</label>
+            <input type="text" list="countries" id="countries" name="countries">
+
+            <datalist id="countries" >
+              <option value="Angola">Angola</option>
+              <option value="Brasil">Brasil</option>
+              <option value="Croatia">Croatia</option>
+              <option value="Denmark">Denmark</option>
+            </datalist>
+        </form>
     </section>
     <script src="script.js"></script>
 </body>

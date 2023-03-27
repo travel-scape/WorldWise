@@ -27,12 +27,14 @@
 //   .catch(error => {
 //     console.error('Error fetching data:', error);
 //   });
-const myModalEl = document.getElementById('modal')
-myModalEl.addEventListener('show.bs.modal', event => {
-  // do something...
-})
+// const myModalEl = document.getElementById('modal')
+// myModalEl.addEventListener('show.bs.modal', event => {
+//   // do something...
+// })
 
-
+const language = document.getElementById('language')
+const currency = document.getElementById('currency')
+const capital = document.getElementById('capital')
 
 const body = document.body;
 async function getData() {
@@ -58,3 +60,5 @@ async function getInfo(){
 fetch('https://restcountries.com/v3.1/all')
 .then((response) => response.json())
 .then((data) => console.log(data))
+
+fetch( )

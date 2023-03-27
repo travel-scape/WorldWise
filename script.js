@@ -1,9 +1,9 @@
 // const form = document.querySelector('.form')
 // document.createElement('form');
 
-// form.addEventListener('click', event => {
-//     event.preventDefault();
-// })
+ //form.addEventListener('click', event => {
+  //   event.preventDefault();
+ //})
 
 // const submit = document.querySelector('.submit')
 // document.createElement('submit');
@@ -27,6 +27,10 @@
 //   .catch(error => {
 //     console.error('Error fetching data:', error);
 //   });
+const myModalEl = document.getElementById('modal')
+myModalEl.addEventListener('show.bs.modal', event => {
+  // do something...
+})
 
 
 
@@ -46,3 +50,11 @@ async function getData() {
 }
 
 getData();
+
+async function getInfo(){
+
+}
+
+fetch('https://restcountries.com/v3.1/all')
+.then((response) => response.json())
+.then((data) => console.log(data))

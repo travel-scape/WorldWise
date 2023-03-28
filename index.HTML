@@ -19,16 +19,12 @@
             <h1>Pick Your Country</h1>    
     </section>
     <section id = "container">
-
-        <form action="/action_page.php">
-            <input list="countries" name="browser">
-            <datalist id="countries">
-              <option value="Internet Explorer">
-              <option value="Firefox">
-              <option value="Chrome">
-              <option value="Opera">
-              <option value="Safari">
-            </datalist>
+        <div class="dropdown">
+            <input  placeholder="Search.." id="myInput" type="text" class="dropbtn"/>
+            <div id="myDropdown" class="dropdown-content">
+            </div>
+          </div>
+        
         <input id = 'submitButton' type="button"  data-bs-toggle = "modal" data-bs-target = ".modal" value = "submit"class="btn btn-outline-primary">
          <div class="modal" tabindex="-1">
             <div class="modal-dialog">

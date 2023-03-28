@@ -4,6 +4,7 @@ const capital = document.getElementById('capital')
 const dropdown = document.getElementById('myDropdown')
 const submitButn = document.getElementById('submitButton')
 const input = document.getElementById('myInput')
+const container = document.getElementById('container')
 
 // submitButton.addEventListener('submit', async event => {
 //   event.preventDefault();
@@ -80,9 +81,25 @@ async function submitClickEvent() {
     console.log("not valid input")
   } else {
     console.log(data)
-  }
+    capital.innerText += data[0].capital
+  
+
+    console.log(data[0].languages)
+    for(val in data[0].languages){
+
+
+      if(data[0].languages[val].length > 1){
+        language.innerText += ` ${data[0].languages[val]}, `
+        
+      } else {
+        console.log(language.innerText += data[0].languages[val])
+      }
     }
+    language.innerText = language.innerText.slice(0, -1);
     
+   
+    }
+  }
 
 
  submitButn.addEventListener('click', submitClickEvent)

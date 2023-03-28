@@ -35,30 +35,54 @@
 const language = document.getElementById('language')
 const currency = document.getElementById('currency')
 const capital = document.getElementById('capital')
+const dropdown = document.getElementById('myDropdown')
+const submitButn = document.getElementById('submitButton')
+const input = document.getElementById('myInput')
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
 
-const body = document.body;
-async function getData() {
-  try {
-    const response = await fetch('https://reqres.in/api/users');
-    const data = await response.json();
-
-    console.log(`Email: ${data.data[0].email}, Name: ${data.data[0].first_name}`);
-    let text = document.createElement('p');
-    text.innerText = `Email: ${data.data[0].email}, Name: ${data.data[0].first_name}`;
-    body.appendChild(text);
-  } catch (error) {
-    console.error(error);
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
   }
 }
 
-getData();
 
-async function getInfo(){
 
-}
 
-fetch('https://restcountries.com/v3.1/all')
-.then((response) => response.json())
-.then((data) => console.log(data))
+  
+  
 
-fetch( )
+fetch("https://restcountries.com/v3.1/all")
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(el => {
+      let option = document.createElement('a')
+      option.innerText = el.name.official
+      dropdown.append(option)
+    });
+  })
+
+
+ fetch("https://restcountries.com/v3.1/all")
+   .then(response => response.json())
+ .then(data => {
+     console.log(data)
+   })
+
+ submitButn.addEventListener('click', submitClickEvent)
+ input.addEventListener('click', myFunction)
+ input.addEventListener('keyup', filterFunction)
+ 
+ 

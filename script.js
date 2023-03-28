@@ -29,6 +29,10 @@ const input = document.getElementById('myInput')
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
 }
+function change(e) {
+  input.value = e.target.innerText
+}
+
 
 function filterFunction() {
   var input, filter, ul, li, a, i;
@@ -38,6 +42,7 @@ function filterFunction() {
   a = div.getElementsByTagName("a");
   for (i = 0; i < a.length; i++) {
     txtValue = a[i].textContent || a[i].innerText;
+    
     if (txtValue.toUpperCase().indexOf(filter) > -1) {
       a[i].style.display = "";
     } else {
@@ -48,15 +53,12 @@ function filterFunction() {
 
 
 
-
-  
-  
-
 fetch("https://restcountries.com/v3.1/all")
   .then(response => response.json())
   .then(data => {
     data.forEach(el => {
       let option = document.createElement('a')
+      option.addEventListener('click',change)
       option.innerText = el.name.official
       dropdown.append(option)
     });
@@ -68,9 +70,20 @@ fetch("https://restcountries.com/v3.1/all")
  .then(data => {
      console.log(data)
    })
-function submitClickEvent() {
-    console.log('hi')
+
+
+async function submitClickEvent() {
+  const data = await fetch(`https://restcountries.com/v3.1/name/${input.value}?fullText=true`)
+  .then(res => res.json())
+  if (data.message === "Not Found") {
+    console.log("not valid input")
+  } else {
+    console.log(data)
+  }
     }
+    
+
+
  submitButn.addEventListener('click', submitClickEvent)
  input.addEventListener('click', myFunction)
  input.addEventListener('keyup', filterFunction)

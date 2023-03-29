@@ -9,6 +9,7 @@ const flag = document.getElementById('flag')
 const population = document.getElementById('population')
 const countryName = document.getElementById('country-name')
 const googleMaps = document.getElementById('google-maps')
+const key = "zfZIu0ppELhFJLQ98TIe4mYGTObtJasg"
 
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -125,5 +126,10 @@ async function submitClickEvent() {
  
  
 
-
+fetch(`https://api.windy.com/api/webcams/v2//list?show=countries&key=${key}`)
+.then(response => response.json())
+.then(data => {
+  console.log('https://api.windy.com/api/webcams/v2//list?show=countries?key=${key}')
+  console.log(data)
+})
 

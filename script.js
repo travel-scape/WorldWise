@@ -5,27 +5,10 @@ const dropdown = document.getElementById('myDropdown')
 const submitButn = document.getElementById('submitButton')
 const input = document.getElementById('myInput')
 const container = document.getElementById('container')
-
-// submitButton.addEventListener('submit', async event => {
-//   event.preventDefault();
-//   const countryName = input.value;
-
-//   try {
-//     const response = await fetch(`https://flagsapi.com/BE/shiny/64.png`);
-//     flag.src = response;
-//     const data = await response.json();
-
-//     if (data.languages && data.languages.length > 0) {
-//       const languages = data.languages.map(lang => lang.name).join(', ');
-//       languagesElement.textContent = `Languages spoken in ${countryName}: ${languages}`;
-//     } else {
-//       languagesElement.textContent = `No information available about languages spoken in ${countryName}`;
-//     }
-//   } catch (error) {
-//     console.error(`Error fetching data for ${countryName}`, error);
-//     languagesElement.textContent = `An error occurred while fetching data for ${countryName}`;
-//   }
-// });
+const flag = document.getElementById('flag')
+const population = document.getElementById('population')
+const countryName = document.getElementById('country-name')
+const googleMaps = document.getElementById('google-maps')
 
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -78,26 +61,51 @@ async function submitClickEvent() {
   const data = await fetch(`https://restcountries.com/v3.1/name/${input.value}?fullText=true`)
   .then(res => res.json())
   if (data.message === "Not Found") {
-    console.log("not valid input")
+    console.log("Input not valid")
+    // to do- stop modal from opening
   } else {
-    console.log(data)
-    capital.innerText += data[0].capital
+    capital.innerText += ` ${data[0].capital}`
   
 
-    console.log(data[0].languages)
     for(val in data[0].languages){
 
 
       if(data[0].languages[val].length > 1){
-        language.innerText += ` ${data[0].languages[val]}, `
+        language.innerText += ` ${data[0].languages[val]}`
         
       } else {
-        console.log(language.innerText += data[0].languages[val])
+        language.innerText += data[0].languages[val]
       }
     }
-    language.innerText = language.innerText.slice(0, -1);
+    // language.innerText = language.innerText.slice(0, -1);
+
     
-   
+    for(val in data[0].currencies){
+      console.log(data[0].currencies[val].name);
+
+      if (data[0].currencies[val].length > 1) {
+      currency.innerText += ` ${data[0].currencies[val].name} `;
+    } else {
+      currency.innerText += ` ${data[0].currencies[val].name}, ${data[0].currencies[val].symbol}`;
+    }
+  }
+  // currency.innerText = currency.innerText.slice(0, -1);
+
+
+  population.innerText += ` ${data[0].population}`
+
+
+    for (val in data[0].flags) {
+      flag.src = data[0].flags['png']
+
+    }
+    
+    countryName.innerText += ` ${data[0].name.official}`
+
+
+    googleMaps.src += data[0].maps.googleMaps
+    console.log(data[0].maps.googleMaps);
+
     }
   }
 

@@ -148,3 +148,8 @@ form {
     align-items: baseline;
     margin-left: 20px;
 }
+
+#myDropdown {
+  height: 220px
+}
+

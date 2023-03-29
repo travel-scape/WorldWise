@@ -1,60 +1,129 @@
-// const form = document.querySelector('.form')
-// document.createElement('form');
+const language = document.getElementById('language')
+const currency = document.getElementById('currency')
+const capital = document.getElementById('capital')
+const dropdown = document.getElementById('myDropdown')
+const submitButn = document.getElementById('submitButton')
+const input = document.getElementById('myInput')
+const container = document.getElementById('container')
+const flag = document.getElementById('flag')
+const population = document.getElementById('population')
+const countryName = document.getElementById('country-name')
+const googleMaps = document.getElementById('google-maps')
 
- //form.addEventListener('click', event => {
-  //   event.preventDefault();
- //})
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+function change(e) {
+  input.value = e.target.innerText
+}
 
-// const submit = document.querySelector('.submit')
-// document.createElement('submit');
 
-// submit.addEventListener('click', event => {
-//     event.preventDefault();
+function filterFunction() {
+  var input, filter, ul, li, a, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  div = document.getElementById("myDropdown");
+  a = div.getElementsByTagName("a");
+
+  for (i = 0; i < a.length; i++) {
+    txtValue = a[i].textContent || a[i].innerText;
     
-// })
-
-
-// fetch('https://reqres.in/api/users')
-//   .then(response => {
-//     if (!response.ok) {
-//       throw new Error('Network response was not ok');
-//     }
-//     return response.json();
-//   })
-//   .then(data => {
-//     console.log(data);
-//   })
-//   .catch(error => {
-//     console.error('Error fetching data:', error);
-//   });
-const myModalEl = document.getElementById('modal')
-myModalEl.addEventListener('show.bs.modal', event => {
-  // do something...
-})
-
-
-
-const body = document.body;
-async function getData() {
-  try {
-    const response = await fetch('https://reqres.in/api/users');
-    const data = await response.json();
-
-    console.log(`Email: ${data.data[0].email}, Name: ${data.data[0].first_name}`);
-    let text = document.createElement('p');
-    text.innerText = `Email: ${data.data[0].email}, Name: ${data.data[0].first_name}`;
-    body.appendChild(text);
-  } catch (error) {
-    console.error(error);
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      a[i].style.display = "";
+    } else {
+      a[i].style.display = "none";
+    }
   }
 }
 
-getData();
 
-async function getInfo(){
 
-}
+fetch("https://restcountries.com/v3.1/all")
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(el => {
+      let option = document.createElement('a')
+      option.addEventListener('click',change)
+      option.innerText = el.name.official
+      option.href = '#pageTop'
+      dropdown.append(option)
+    });
+  })
 
-fetch('https://restcountries.com/v3.1/all')
-.then((response) => response.json())
-.then((data) => console.log(data))
+
+
+//  fetch("https://restcountries.com/v3.1/all")
+//    .then(response => response.json())
+//  .then(data => {
+//      console.log(data)
+//    })
+
+
+async function submitClickEvent() {
+  const data = await fetch(`https://restcountries.com/v3.1/name/${input.value}?fullText=true`)
+  .then(res => res.json())
+  if (data.message === "Not Found") {
+    console.log("Input not valid")
+    // to do- stop modal from opening
+  } else {
+    currency.innerText = "Currency: "
+    language.innerText = "Language: "
+    capital.innerText = "Capital: "
+    population.innerText = "Population: "
+    // flagMoji.innerText = 'Flag: '
+
+
+    capital.innerText += ` ${data[0].capital}`
+  
+
+    for(val in data[0].languages){
+
+
+      if(data[0].languages[val].length > 1){
+        language.innerText += ` ${data[0].languages[val]}`
+        
+      } else {
+        language.innerText += data[0].languages[val]
+      }
+    }
+    // language.innerText = language.innerText.slice(0, -1);
+
+    
+    for(val in data[0].currencies){
+      console.log(data[0].currencies[val].name);
+
+      if (data[0].currencies[val].length > 1) {
+      currency.innerText += ` ${data[0].currencies[val].name} `;
+    } else {
+      currency.innerText += ` ${data[0].currencies[val].name}, ${data[0].currencies[val].symbol}`;
+    }
+  }
+  // currency.innerText = currency.innerText.slice(0, -1);
+
+
+  population.innerText += ` ${data[0].population}`
+
+
+    for (val in data[0].flags) {
+      flag.src = data[0].flags['png']
+
+    }
+    
+    countryName.innerText = data[0].name.official
+
+
+    googleMaps.src += data[0].maps.googleMaps
+    console.log(data[0].maps.googleMaps);
+
+    }
+  }
+
+
+ submitButn.addEventListener('click', submitClickEvent)
+ input.addEventListener('click', myFunction)
+ input.addEventListener('keyup', filterFunction)
+ 
+ 
+
+
+

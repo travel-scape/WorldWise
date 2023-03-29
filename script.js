@@ -50,11 +50,11 @@ fetch("https://restcountries.com/v3.1/all")
 
 
 
- fetch("https://restcountries.com/v3.1/all")
-   .then(response => response.json())
- .then(data => {
-     console.log(data)
-   })
+//  fetch("https://restcountries.com/v3.1/all")
+//    .then(response => response.json())
+//  .then(data => {
+//      console.log(data)
+//    })
 
 
 async function submitClickEvent() {
@@ -64,6 +64,13 @@ async function submitClickEvent() {
     console.log("Input not valid")
     // to do- stop modal from opening
   } else {
+    currency.innerText = "Currency: "
+    language.innerText = "Language: "
+    capital.innerText = "Capital: "
+    population.innerText = "Population: "
+    // flagMoji.innerText = 'Flag: '
+
+
     capital.innerText += ` ${data[0].capital}`
   
 
@@ -100,7 +107,7 @@ async function submitClickEvent() {
 
     }
     
-    countryName.innerText += ` ${data[0].name.official}`
+    countryName.innerText = data[0].name.official
 
 
     googleMaps.src += data[0].maps.googleMaps

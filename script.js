@@ -24,6 +24,7 @@ function filterFunction() {
   filter = input.value.toUpperCase();
   div = document.getElementById("myDropdown");
   a = div.getElementsByTagName("a");
+
   for (i = 0; i < a.length; i++) {
     txtValue = a[i].textContent || a[i].innerText;
     
@@ -44,6 +45,7 @@ fetch("https://restcountries.com/v3.1/all")
       let option = document.createElement('a')
       option.addEventListener('click',change)
       option.innerText = el.name.official
+      option.href = '#pageTop'
       dropdown.append(option)
     });
   })

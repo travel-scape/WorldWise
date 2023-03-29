@@ -9,7 +9,14 @@
 </head>
 <body>
     <!-- <div class="bg-image"> -->
-    <header>
+      <nav class="navbar sticky-top bg-body-tertiary">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <img id="img" src="images/logo-transparent-png.png" alt="Bootstrap" width="30" height="24">
+          </a>
+        </div>
+      </nav>
+    <header id="pageTop">
       <p id="title" >World Wise</p>
     </header>
     <section id = "top">
@@ -31,24 +38,30 @@
                   <button type="button" class="btn btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <p id = "capital">Capital: </p>
+                  <p id="capital">Capital: </p>
                   <p id="language">Spoken Language: </p>
-                  <p id = "currency">Currency: </p>
+                  <p id="currency">Currency: </p>
                   <p id="population">Population: </p>
-                  <p id = "name">Flag:<img id="flag"></img> </p>
-                  <iframe id = "google-maps">Maps: </iframe>
+                  <p id="name">Flag:<img id="flag"></img> </p>
+                  <p id="maps" src="">Google Maps: </p>
+                  <!-- <iframe id = "google-maps">Maps: </iframe> -->
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary">Save changes</button>
+                  <button type="button" class="btn btn-primary">Live View</button>
                 </div>
               </div>
             </div>
           </div> 
     </section>
-    </div>  
+  </div>
+
+  <!-- <div>
+    <footer> Travel Scape Group</footer>
+  </div> -->
+
+    </body>
 <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
-</body>
 </html>

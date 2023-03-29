@@ -3,6 +3,25 @@
     font-family: monospace;
     background-color: gold
 } */
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+}
+
+
+.container {
+  display: flex;
+  width: max-content;
+  padding: 0;
+}
+
+#img {
+  height: 80px;
+  width: 80px;
+}
+
 
 header {
     display:flex;
@@ -11,8 +30,8 @@ header {
     justify-content: center;
     align-items: center;
     height: 140px;
-    border-radius: 70px;
-    opacity: 0.5;
+    border-radius: 60px;
+
 }
 
 #title {
@@ -20,12 +39,13 @@ header {
     padding: inherit;
     font-size: 90px;
     margin:auto;
+    opacity: 1;
 }
 
 
 #top {
     height: 150px;
-    margin-top: 30px;
+    margin-top: 50px;
     margin-left: 50px;
     margin-right: 50px;
     color: #3E8E41;
@@ -35,16 +55,20 @@ header {
     align-items: center;
     text-align: center;
     background-color: antiquewhite;
-    border-radius: 70px;
-    opacity: 0.5;
+    border-radius: 60px;
+    opacity: 0.8;
 }
 
 #info {
     font-size: 1.5em;
+    opacity: 1;
 }
 
 
-
+#pageTop {
+  margin-top: 30px;
+  opacity: 0.9;
+}
 
 #container {
     display: flex;
@@ -66,20 +90,21 @@ form {
     margin-right: 30px;
 }
 
-
-
 .dropbtn {
   background-color: #3E8E41;
-  color: white;
+  color: black;
   padding: 16px;
   font-size: 16px;
   border: none;
   cursor: pointer;
   opacity: 0.5;
 }
+
+
 .dropbtn:hover, .dropbtn:focus {
   background-color: #3E8E41;
 }
+
 #myInput {
   box-sizing: border-box;
   background-image: url(‘searchicon.png’);
@@ -106,22 +131,17 @@ form {
   border: 1px solid #ddd;
   z-index: 1;
 }
+
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
+
 .dropdown a:hover {background-color: #ddd;}
 .show {display: block;}
 
-body {
- /* background-image: url('https://giant.gfycat.com/BlankImpressionableAndeancondor.mp4');
- background-repeat: no-repeat; */
- background-size: cover;
- width: 100%;
- height: 100%;
-}
 
 #flag {
     height: 60px;

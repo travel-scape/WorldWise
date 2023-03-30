@@ -9,6 +9,7 @@ const flag = document.getElementById('flag')
 const population = document.getElementById('population')
 const countryName = document.getElementById('country-name')
 const googleMaps = document.getElementById('maps')
+// const continent = document.getElementById('continent')
 
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -70,6 +71,7 @@ async function submitClickEvent() {
     language.innerText = "Language: "
     capital.innerText = "Capital: "
     population.innerText = "Population: "
+    // continent.innerText = "Continent: "
     // googleMaps.innerText = "Google Maps: "
     // flagMoji.innerText = 'Flag: '
 
@@ -110,11 +112,15 @@ async function submitClickEvent() {
 
     }
     
-    countryName.innerText = data[0].name.official
+countryName.innerText = data[0].name.official
 
 
     // googleMaps.src = data[0].maps.googleMaps
     // console.log(data[0].maps.googleMaps);
+
+
+  // continent.innerText += ` ${data[0].continent}`
+  // console.log(data[0].continent);
 
     }
   }

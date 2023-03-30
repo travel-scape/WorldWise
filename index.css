@@ -18,8 +18,8 @@ body {
 }
 
 #img {
-  height: 80px;
-  width: 80px;
+  height: 90px;
+  width: 90px;
 }
 
 
@@ -40,6 +40,7 @@ header {
     font-size: 90px;
     margin:auto;
     opacity: 1;
+    margin: 10%;
 }
 
 
@@ -62,6 +63,9 @@ header {
 #info {
     font-size: 1.5em;
     opacity: 1;
+    font-family:'Times New Roman', Times, serif;
+    font-style:italic;
+    margin: 10%;
 }
 
 
@@ -102,7 +106,7 @@ form {
 
 
 .dropbtn:hover, .dropbtn:focus {
-  background-color: #3E8E41;
+  background-color: #0c0f0d;
 }
 
 #myInput {
@@ -150,6 +154,24 @@ form {
 }
 
 #myDropdown {
-  height: 220px
+  height: 400px
 }
 
+
+body {
+  background-image: url('https://images.pexels.com/photos/1457939/pexels-photo-1457939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+}
+
+#submitButton {
+  margin-top: 60px;
+}
+
+#myInput {
+  margin-top: 60px;
+}
+
+#headerText {
+  align-self:last baseline;
+  color: #5fa6de;
+  font-size: 20px;
+}

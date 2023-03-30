@@ -196,14 +196,13 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    height: 200px;
+    height: 300px;
   }
 
 
   #info {
     font-size:large;
+    margin-top: 20px;
   }
-
-
 
 }

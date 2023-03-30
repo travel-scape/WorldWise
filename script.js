@@ -10,6 +10,7 @@ const population = document.getElementById('population')
 const countryName = document.getElementById('country-name')
 // const googleMaps = document.getElementById('maps')
 const continents = document.getElementById('continents')
+const independent = document.getElementById('independent')
 
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -54,13 +55,6 @@ fetch("https://restcountries.com/v3.1/all")
 
 
 
-//  fetch("https://restcountries.com/v3.1/all")
-//    .then(response => response.json())
-//  .then(data => {
-//      console.log(data)
-//    })
-
-
 async function submitClickEvent() {
   const data = await fetch(`https://restcountries.com/v3.1/name/${input.value}?fullText=true`)
   .then(res => res.json())
@@ -73,6 +67,7 @@ async function submitClickEvent() {
     capital.innerText = "Capital: "
     population.innerText = "Population: "
     continents.innerText = "Continent: "
+    independent.innerText = "Independent: "
     // googleMaps.innerText = "Google Maps: "
     // flagMoji.innerText = 'Flag: '
 
@@ -119,11 +114,10 @@ countryName.innerText = data[0].name.official
     // googleMaps.innerText += ` ${data[0].maps.googleMaps}`
     // console.log(data[0].maps.googleMaps);
 
+  independent.innerText += ` ${data[0].independent}`
 
   continents.innerText += ` ${data[0].continents}`
-  console.log(data[0].continents);
-
-
+  
 
     }
   }

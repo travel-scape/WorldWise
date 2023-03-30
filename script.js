@@ -8,8 +8,8 @@ const container = document.getElementById('container')
 const flag = document.getElementById('flag')
 const population = document.getElementById('population')
 const countryName = document.getElementById('country-name')
-const googleMaps = document.getElementById('maps')
-// const continent = document.getElementById('continent')
+// const googleMaps = document.getElementById('maps')
+const continents = document.getElementById('continents')
 
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -42,6 +42,7 @@ function filterFunction() {
 fetch("https://restcountries.com/v3.1/all")
   .then(response => response.json())
   .then(data => {
+    console.log(data)
     data.forEach(el => {
       let option = document.createElement('a')
       option.addEventListener('click',change)
@@ -71,12 +72,12 @@ async function submitClickEvent() {
     language.innerText = "Language: "
     capital.innerText = "Capital: "
     population.innerText = "Population: "
-    // continent.innerText = "Continent: "
+    continents.innerText = "Continent: "
     // googleMaps.innerText = "Google Maps: "
     // flagMoji.innerText = 'Flag: '
 
 
-    capital.innerText += ` ${data[0].capital}`
+    capital.innerText += ` ${data[0].capital}`;
   
 
     for(val in data[0].languages){
@@ -115,12 +116,14 @@ async function submitClickEvent() {
 countryName.innerText = data[0].name.official
 
 
-    // googleMaps.src = data[0].maps.googleMaps
+    // googleMaps.innerText += ` ${data[0].maps.googleMaps}`
     // console.log(data[0].maps.googleMaps);
 
 
-  // continent.innerText += ` ${data[0].continent}`
-  // console.log(data[0].continent);
+  continents.innerText += ` ${data[0].continents}`
+  console.log(data[0].continents);
+
+
 
     }
   }

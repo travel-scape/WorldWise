@@ -7,7 +7,7 @@ html {
   height: 100%;
 }
 body {
-  min-height: 100%;
+  min-height: 100vh;
 }
 
 
@@ -31,14 +31,12 @@ header {
     align-items: center;
     height: 140px;
     border-radius: 60px;
-
 }
 
 #title {
     font-family:'Times New Roman', Times, serif;
     padding: inherit;
     font-size: 90px;
-    margin:auto;
     opacity: 1;
     margin: 10%;
 }
@@ -134,6 +132,7 @@ form {
   overflow: auto;
   border: 1px solid #ddd;
   z-index: 1;
+  
 }
 
 .dropdown-content a {
@@ -154,7 +153,7 @@ form {
 }
 
 #myDropdown {
-  height: 400px
+  height: 400px;
 }
 
 
@@ -174,4 +173,37 @@ body {
   align-self:last baseline;
   color: #5fa6de;
   font-size: 20px;
+}
+
+
+
+
+@media screen and (max-width: 715px) {
+  
+  #title {
+    flex-wrap: wrap;
+    text-align: center;
+    font-size: 50px;
+  }
+
+
+  header {
+    justify-content: center;
+    align-items: center;
+}
+
+  #top {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 200px;
+  }
+
+
+  #info {
+    font-size:large;
+  }
+
+
+
 }

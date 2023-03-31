@@ -139,13 +139,4 @@ async function submitClickEvent() {
  
  
 
-<<<<<<< HEAD
-fetch(`https://api.windy.com/api/webcams/v2//list?show=countries&key=${key}`)
-.then(response => response.json())
-.then(data => {
-  console.log('https://api.windy.com/api/webcams/v2//list?show=countries?key=${key}')
-  console.log(data)
-})
-=======
->>>>>>> modal
 

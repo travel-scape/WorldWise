@@ -1,33 +1,9 @@
 /* body {
     margin: 0;
     font-family: monospace;
-<<<<<<< HEAD
-    background-color: gold
-} */
-html {
-  height: 100%;
-}
-body {
-  min-height: 100%;
-}
-
-
-.container {
-  display: flex;
-  width: max-content;
-  padding: 0;
-}
-
-#img {
-  height: 80px;
-  width: 80px;
-}
-
-=======
     background-color: gold;
 }
 */
->>>>>>> modal
 
 header {
     display:flex;

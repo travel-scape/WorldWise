@@ -20,7 +20,7 @@ function change(e) {
 
 
 function filterFunction() {
-  var input, filter, ul, li, a, i;
+  let input, filter, ul, li, a, i;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   div = document.getElementById("myDropdown");
@@ -44,7 +44,7 @@ fetch("https://restcountries.com/v3.1/all")
   .then(data => {
     data.forEach(el => {
       let option = document.createElement('a')
-      option.addEventListener('click',change)
+      option.addEventListener('click', change)
       option.innerText = el.name.official
       option.href = '#pageTop'
       dropdown.append(option)
@@ -72,8 +72,21 @@ async function submitClickEvent() {
     capital.innerText = "Capital: "
     population.innerText = "Population: "
     // flagMoji.innerText = 'Flag: '
+    let iso3166 = data[0].cca2
+    // console.log(iso3166)
+    const getWebcam = async (isoCode) => {
+      let webcamData = await fetch(`https://api.windy.com/api/webcams/v2/list/country=${isoCode}?show=webcams:player&property=live&key=${key}`)
+      let videoJSon = await webcamData.json()
+      console.log(videoJSon.result)
+      let videoTrue = videoJSon.result.webcams[0].player
+       console.log(videoTrue)
+      //for(let el in videoTrue){
+        //if()
+      //}
 
-
+    }
+    let video = await getWebcam(iso3166)
+    console.log(video)
     capital.innerText += ` ${data[0].capital}`
   
 
@@ -126,10 +139,13 @@ async function submitClickEvent() {
  
  
 
+<<<<<<< HEAD
 fetch(`https://api.windy.com/api/webcams/v2//list?show=countries&key=${key}`)
 .then(response => response.json())
 .then(data => {
   console.log('https://api.windy.com/api/webcams/v2//list?show=countries?key=${key}')
   console.log(data)
 })
+=======
+>>>>>>> modal
 

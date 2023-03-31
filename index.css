@@ -1,6 +1,7 @@
 /* body {
     margin: 0;
     font-family: monospace;
+<<<<<<< HEAD
     background-color: gold
 } */
 html {
@@ -22,6 +23,11 @@ body {
   width: 80px;
 }
 
+=======
+    background-color: gold;
+}
+*/
+>>>>>>> modal
 
 header {
     display:flex;

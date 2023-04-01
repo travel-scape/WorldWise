@@ -152,7 +152,7 @@ form {
 
 
 #flag {
-    height: 60px;
+    height: 90px;
     align-items: baseline;
     margin-left: 20px;
 }
@@ -191,20 +191,26 @@ body {
 #population,
 #continents,
 #independent {
-  font-weight: 500;
+  font-weight: 400;
   font-size: larger;
+  /* background-color:aliceblue; */
 }
 
 #flagFont {
 font-weight: 500;
 font-size: larger;
+/* background-color:aliceblue; */
 }
 
+/* .modal-content {
+  align-items: center;
+} */
 
 .modal-title {
-  text-align: center;
   font-size: x-large;
 }
+
+
 
 
 

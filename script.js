@@ -8,9 +8,9 @@ const container = document.getElementById('container')
 const flag = document.getElementById('flag')
 const population = document.getElementById('population')
 const countryName = document.getElementById('country-name')
-// const googleMaps = document.getElementById('maps')
 const continents = document.getElementById('continents')
 const independent = document.getElementById('independent')
+
 
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -68,7 +68,7 @@ async function submitClickEvent() {
     population.innerText = "Population: "
     continents.innerText = "Continent: "
     independent.innerText = "Independent: "
-    // googleMaps.innerText = "Google Maps: "
+ 
 
 
     capital.innerText += ` ${data[0].capital}`;
@@ -84,7 +84,7 @@ async function submitClickEvent() {
         language.innerText += data[0].languages[val]
       }
     }
-    // language.innerText = language.innerText.slice(0, -1);
+
 
     
     for(val in data[0].currencies){
@@ -96,7 +96,7 @@ async function submitClickEvent() {
       currency.innerText += ` ${data[0].currencies[val].name}, ${data[0].currencies[val].symbol}`;
     }
   }
-  // currency.innerText = currency.innerText.slice(0, -1);
+
 
 
   population.innerText += ` ${data[0].population}`
@@ -107,7 +107,7 @@ async function submitClickEvent() {
 
     }
     
-countryName.innerText = data[0].name.official
+  countryName.innerText += ` ${data[0].name.official}`
 
 
     // googleMaps.innerText += ` ${data[0].maps.googleMaps}`

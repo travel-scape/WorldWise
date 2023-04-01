@@ -69,7 +69,6 @@ async function submitClickEvent() {
     continents.innerText = "Continent: "
     independent.innerText = "Independent: "
     // googleMaps.innerText = "Google Maps: "
-    // flagMoji.innerText = 'Flag: '
 
 
     capital.innerText += ` ${data[0].capital}`;
@@ -118,6 +117,7 @@ countryName.innerText = data[0].name.official
 
   continents.innerText += ` ${data[0].continents}`
   
+
 
     }
   }

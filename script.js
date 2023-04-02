@@ -12,6 +12,7 @@ const continents = document.getElementById('continents')
 const independent = document.getElementById('independent')
 const flagDisplay = document.getElementsByClassName('flag-display')
 const webcamView = document.getElementById('view-webcam')
+const webcamLink = document.getElementById('webcam-link')
 const key = "zfZIu0ppELhFJLQ98TIe4mYGTObtJasg"
 
 
@@ -121,26 +122,25 @@ async function submitClickEvent() {
 
 
   let iso3166 = data[0].cca2
-     console.log(iso3166)
      async function getWebcam (isoCode) {
       let webcamData = await fetch(`https://api.windy.com/api/webcams/v2/list/country=${isoCode}?show=webcams:player&property=live&key=${key}`)
       let videoJSon = await webcamData.json()
-      console.log(videoJSon.result)
       
       if(videoJSon.result.total === 0){
         //for no results
-        console.log("No webcam availiable")
+        webcamView.style.backgroundColor= 'red'
+        webcamView.innerText = "No webcam available"
+        webcamLink.removeAttribute('href')
       } else{
         let videoTrue = videoJSon.result.webcams[0].player.day.link
-        console.log(videoTrue)
+        //location.href = videoTrue
+        webcamView.style.backgroundColor = "#0D6EFD" 
+        webcamView.innerText= "View Footage" 
+        webcamLink.setAttribute('href', videoTrue)
+        webcamLink.target = '_blank'
 
       }
 
-       //console.log(videoTrue)
-
-      //for(let el in videoTrue){
-        //if()
-      //}
       
 
     }

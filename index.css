@@ -8,7 +8,8 @@ html {
 }
 body {
   min-height: 100vh;
-  background-image: url('https://live.staticflickr.com/4068/4540426204_6b9900736b_b.jpg');
+  /* background-image: url('https://live.staticflickr.com/4068/4540426204_6b9900736b_b.jpg'); */
+  background-image: url('https://techcrunch.com/wp-content/uploads/2023/02/GettyImages-1334236014.jpg');
 }
 
 .navbar {
@@ -69,7 +70,7 @@ header {
     opacity: 0.9;
     font-family:'Times New Roman', Times, serif;
     font-style:italic;
-    margin: 10%;
+    margin: 9%;
 }
 
 
@@ -236,7 +237,7 @@ font-size: larger;
 
 .flag-images {
   height: 2em;
-  width: 4em;
+  width: 3.5em;
   margin: 30px;
 }
 

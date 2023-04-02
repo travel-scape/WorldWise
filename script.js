@@ -11,6 +11,9 @@ const countryName = document.getElementById('country-name')
 const continents = document.getElementById('continents')
 const independent = document.getElementById('independent')
 const flagDisplay = document.getElementsByClassName('flag-display')
+const webcamView = document.getElementById('view-webcam')
+const key = "zfZIu0ppELhFJLQ98TIe4mYGTObtJasg"
+
 
 
 function myFunction() {
@@ -60,7 +63,6 @@ fetch("https://restcountries.com/v3.1/all")
 fetch("https://restcountries.com/v3.1/all")
   .then(response => response.json())
   .then(data => {
-    console.log(data)
     data.forEach(el => {
       let option = document.createElement('a')
       option.addEventListener('click',change)
@@ -79,19 +81,15 @@ async function submitClickEvent() {
     console.log("Input not valid")
     // to do- stop modal from opening
   } else {
+    countryName.innerText = ""
     currency.innerText = "Currency: "
     language.innerText = "Language: "
     capital.innerText = "Capital: "
     population.innerText = "Population: "
     continents.innerText = "Continent: "
     independent.innerText = "Independent: "
-    // countryName.innerText = "Country Name";
-
-
     capital.innerText += ` ${data[0].capital}`;
-  
-
-    for(val in data[0].languages){
+  for(val in data[0].languages){
 
 
       if(data[0].languages[val].length > 1){
@@ -101,44 +99,59 @@ async function submitClickEvent() {
         language.innerText += data[0].languages[val]
       }
     }
-
-
-    
     for(val in data[0].currencies){
-        console.log(data[0].currencies[val].name);
-
         if (data[0].currencies[val].length > 1) {
           currency.innerText += ` ${data[0].currencies[val].name} `;
         } else {
           currency.innerText += ` ${data[0].currencies[val].name}, ${data[0].currencies[val].symbol}`;
         }
     } 
-
-
-
   population.innerText += ` ${data[0].population}`
-
-
     for (val in data[0].flags) {
       flag.src = data[0].flags['png']
     }
-    
-  countryName.innerText += ` ${data[0].name.official}`
-
-
-
+    countryName.innerText += ` ${data[0].name.official}`
   if (!data[0].independent) {
     independent.innerText += " No"
   } else {
     independent.innerText += " Yes"
   }
-
-
   continents.innerText += ` ${data[0].continents}`
-  console.log(data[0].continents)
+  
+
+
+  let iso3166 = data[0].cca2
+     console.log(iso3166)
+     async function getWebcam (isoCode) {
+      let webcamData = await fetch(`https://api.windy.com/api/webcams/v2/list/country=${isoCode}?show=webcams:player&property=live&key=${key}`)
+      let videoJSon = await webcamData.json()
+      console.log(videoJSon.result)
+      
+      if(videoJSon.result.total === 0){
+        //for no results
+        console.log("No webcam availiable")
+      } else{
+        let videoTrue = videoJSon.result.webcams[0].player.day.link
+        console.log(videoTrue)
+
+      }
+
+       //console.log(videoTrue)
+
+      //for(let el in videoTrue){
+        //if()
+      //}
+      
+
+    }
+
+    webcamView.addEventListener('click', getWebcam(iso3166))
 
   }
 }
+
+
+
 
 
 

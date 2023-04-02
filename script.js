@@ -10,6 +10,7 @@ const population = document.getElementById('population')
 const countryName = document.getElementById('country-name')
 const continents = document.getElementById('continents')
 const independent = document.getElementById('independent')
+const flagDisplay = document.getElementsByClassName('flag-display')
 
 
 function myFunction() {
@@ -37,6 +38,22 @@ function filterFunction() {
     }
   }
 }
+
+
+fetch("https://restcountries.com/v3.1/all") 
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(element => {
+      // element.flags.png
+      let image = document.createElement('img')
+      image.src = element.flags.png
+      image.classList = "flag-images"
+      // flagDisplay.append(image)
+      flagDisplay[0].append(image)
+    })
+  });
+
+
 
 
 
@@ -68,7 +85,7 @@ async function submitClickEvent() {
     population.innerText = "Population: "
     continents.innerText = "Continent: "
     independent.innerText = "Independent: "
- 
+    // countryName.innerText = "Country Name";
 
 
     capital.innerText += ` ${data[0].capital}`;
@@ -88,14 +105,14 @@ async function submitClickEvent() {
 
     
     for(val in data[0].currencies){
-      console.log(data[0].currencies[val].name);
+        console.log(data[0].currencies[val].name);
 
-      if (data[0].currencies[val].length > 1) {
-      currency.innerText += ` ${data[0].currencies[val].name} `;
-    } else {
-      currency.innerText += ` ${data[0].currencies[val].name}, ${data[0].currencies[val].symbol}`;
-    }
-  }
+        if (data[0].currencies[val].length > 1) {
+          currency.innerText += ` ${data[0].currencies[val].name} `;
+        } else {
+          currency.innerText += ` ${data[0].currencies[val].name}, ${data[0].currencies[val].symbol}`;
+        }
+    } 
 
 
 
@@ -104,23 +121,27 @@ async function submitClickEvent() {
 
     for (val in data[0].flags) {
       flag.src = data[0].flags['png']
-
     }
     
   countryName.innerText += ` ${data[0].name.official}`
 
 
-    // googleMaps.innerText += ` ${data[0].maps.googleMaps}`
-    // console.log(data[0].maps.googleMaps);
 
-  independent.innerText += ` ${data[0].independent}`
+  if (!data[0].independent) {
+    independent.innerText += " No"
+  } else {
+    independent.innerText += " Yes"
+  }
+
 
   continents.innerText += ` ${data[0].continents}`
-  
+  console.log(data[0].continents)
 
-
-    }
   }
+}
+
+
+
 
 
  submitButn.addEventListener('click', submitClickEvent)

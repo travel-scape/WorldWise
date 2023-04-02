@@ -44,11 +44,9 @@ fetch("https://restcountries.com/v3.1/all")
   .then(response => response.json())
   .then(data => {
     data.forEach(element => {
-      // element.flags.png
       let image = document.createElement('img')
       image.src = element.flags.png
       image.classList = "flag-images"
-      // flagDisplay.append(image)
       flagDisplay[0].append(image)
     })
   });
@@ -77,7 +75,6 @@ async function submitClickEvent() {
   .then(res => res.json())
   if (data.message === "Not Found") {
     console.log("Input not valid")
-    // to do- stop modal from opening
   } else {
     currency.innerText = "Currency: "
     language.innerText = "Language: "
@@ -85,7 +82,6 @@ async function submitClickEvent() {
     population.innerText = "Population: "
     continents.innerText = "Continent: "
     independent.innerText = "Independent: "
-    // countryName.innerText = "Country Name";
 
 
     capital.innerText += ` ${data[0].capital}`;
@@ -139,8 +135,6 @@ async function submitClickEvent() {
 
   }
 }
-
-
 
 
 

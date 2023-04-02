@@ -8,8 +8,9 @@ const container = document.getElementById('container')
 const flag = document.getElementById('flag')
 const population = document.getElementById('population')
 const countryName = document.getElementById('country-name')
-const googleMaps = document.getElementById('google-maps')
-const key = "zfZIu0ppELhFJLQ98TIe4mYGTObtJasg"
+const continents = document.getElementById('continents')
+const independent = document.getElementById('independent')
+
 
 function myFunction() {
   document.getElementById("myDropdown").classList.toggle("show");
@@ -20,7 +21,7 @@ function change(e) {
 
 
 function filterFunction() {
-  let input, filter, ul, li, a, i;
+  var input, filter, ul, li, a, i;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   div = document.getElementById("myDropdown");
@@ -42,22 +43,16 @@ function filterFunction() {
 fetch("https://restcountries.com/v3.1/all")
   .then(response => response.json())
   .then(data => {
+    console.log(data)
     data.forEach(el => {
       let option = document.createElement('a')
-      option.addEventListener('click', change)
+      option.addEventListener('click',change)
       option.innerText = el.name.official
       option.href = '#pageTop'
       dropdown.append(option)
     });
   })
 
-
-
-//  fetch("https://restcountries.com/v3.1/all")
-//    .then(response => response.json())
-//  .then(data => {
-//      console.log(data)
-//    })
 
 
 async function submitClickEvent() {
@@ -71,23 +66,12 @@ async function submitClickEvent() {
     language.innerText = "Language: "
     capital.innerText = "Capital: "
     population.innerText = "Population: "
-    // flagMoji.innerText = 'Flag: '
-    let iso3166 = data[0].cca2
-    // console.log(iso3166)
-    const getWebcam = async (isoCode) => {
-      let webcamData = await fetch(`https://api.windy.com/api/webcams/v2/list/country=${isoCode}?show=webcams:player&property=live&key=${key}`)
-      let videoJSon = await webcamData.json()
-      console.log(videoJSon.result)
-      let videoTrue = videoJSon.result.webcams[0].player
-       console.log(videoTrue)
-      //for(let el in videoTrue){
-        //if()
-      //}
+    continents.innerText = "Continent: "
+    independent.innerText = "Independent: "
+ 
 
-    }
-    let video = await getWebcam(iso3166)
-    console.log(video)
-    capital.innerText += ` ${data[0].capital}`
+
+    capital.innerText += ` ${data[0].capital}`;
   
 
     for(val in data[0].languages){
@@ -100,7 +84,7 @@ async function submitClickEvent() {
         language.innerText += data[0].languages[val]
       }
     }
-    // language.innerText = language.innerText.slice(0, -1);
+
 
     
     for(val in data[0].currencies){
@@ -112,7 +96,7 @@ async function submitClickEvent() {
       currency.innerText += ` ${data[0].currencies[val].name}, ${data[0].currencies[val].symbol}`;
     }
   }
-  // currency.innerText = currency.innerText.slice(0, -1);
+
 
 
   population.innerText += ` ${data[0].population}`
@@ -123,11 +107,17 @@ async function submitClickEvent() {
 
     }
     
-    countryName.innerText = data[0].name.official
+  countryName.innerText += ` ${data[0].name.official}`
 
 
-    googleMaps.src += data[0].maps.googleMaps
-    console.log(data[0].maps.googleMaps);
+    // googleMaps.innerText += ` ${data[0].maps.googleMaps}`
+    // console.log(data[0].maps.googleMaps);
+
+  independent.innerText += ` ${data[0].independent}`
+
+  continents.innerText += ` ${data[0].continents}`
+  
+
 
     }
   }
@@ -138,5 +128,6 @@ async function submitClickEvent() {
  input.addEventListener('keyup', filterFunction)
  
  
+
 
 

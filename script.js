@@ -11,6 +11,7 @@ const countryName = document.getElementById('country-name')
 const continents = document.getElementById('continents')
 const independent = document.getElementById('independent')
 const flagDisplay = document.getElementsByClassName('flag-display')
+const flagBtn = document.getElementById('flagBtn')
 
 
 function myFunction() {
@@ -144,5 +145,11 @@ async function submitClickEvent() {
  
  
 
+ flagBtn.addEventListener("click", () => {
+  displayingFlags()
+ });
 
-
+ function displayingFlags() {
+   document.querySelector(".flag-display").style.display = "block";
+   document.querySelector('#flagBtn').style.display = 'none';
+ }

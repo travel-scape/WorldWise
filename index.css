@@ -214,16 +214,34 @@ font-size: larger;
 }
 
 
+#flagSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#flagBtn {
+  background-color:antiquewhite;
+  margin-top: 1.5cm;
+  height: 40px;
+  width: 130px;
+}
+
+
 .flag-display {
   margin-top: 170px;
   width: fit-content;
+  display: none;
 }
 
+
 .flag-images {
-  height: 2em;
-  width: 3.5em;
+  height: 1.5em;
+  width: 3em;
   margin: 30px;
 }
+
 
 
 @media screen and (max-width: 715px) {

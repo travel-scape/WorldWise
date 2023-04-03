@@ -152,4 +152,8 @@ async function submitClickEvent() {
  function displayingFlags() {
    document.querySelector(".flag-display").style.display = "block";
    document.querySelector('#flagBtn').style.display = 'none';
+  // document.querySelector("#flagBtn") = let flagMoving;
+  // flagMoving.style.display = flex;
+  // flagMoving.style.
+
  }

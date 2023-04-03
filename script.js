@@ -145,13 +145,13 @@ async function submitClickEvent() {
  
  
 
- flagBtn.addEventListener("click", () => {
-  displayingFlags()
- });
+//  flagBtn.addEventListener("click", () => {
+//   displayingFlags()
+//  });
 
- function displayingFlags() {
-   document.querySelector(".flag-display").style.display = "block";
-   document.querySelector('#flagBtn').style.display = 'none';
+//  function displayingFlags() {
+//    document.querySelector(".flag-display").style.display = "block";
+//    document.querySelector('#flagBtn').style.display = 'none';
   // document.querySelector("#flagBtn") = let flagMoving;
   // flagMoving.style.display = flex;
   // flagMoving.style.

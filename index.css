@@ -140,7 +140,6 @@ form {
   overflow: auto;
   border: 1px solid #ddd;
   z-index: 1;
-  
 }
 
 .dropdown-content a {
@@ -162,6 +161,8 @@ form {
 
 #myDropdown {
   height: 625px;
+  height: 600px;
+  margin-bottom: 20px;
 }
 
 
@@ -214,20 +215,58 @@ font-size: larger;
 }
 
 
-.flag-display {
-  margin-top: 170px;
-  width: fit-content;
-  /* background-color: #ccd5ae; */
-  margin-top: 170px;
-  width: fit-content;
+/* #flagSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: #0092db; */
+/* } */
+
+
+/* #flagBtn {
+  background-color:antiquewhite;
+  margin-top: 1.5cm;
+  margin-bottom: 1cm;
+  height: 40px;
+  width: 130px;
+} */
+
+
+/* .flag-display {
+  margin-top: 150px;
+  display: none;
+} */
+
+
+/* .flag-images {
+  height: 1.7em;
+  width: 3em;
+  margin: 30px;
+} */
+
+
+footer {
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  margin-bottom: 0px;
+  margin-top: 150px;
+  background-color: antiquewhite;
+  font-style: italic;
+  font-weight: 400;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  opacity: 0.6;
+  border-style: groove;
+  justify-content: space-around;
 }
 
-.flag-images {
-  height: 2em;
-  width: 3.5em;
-  width: 3.5em;
-  margin: 30px;
+.pFoot {
+  text-align: center;
+  margin: 8px;
 }
+
+
 
 
 @media screen and (max-width: 715px) {

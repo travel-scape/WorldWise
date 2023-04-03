@@ -41,16 +41,16 @@ function filterFunction() {
 }
 
 
-fetch("https://restcountries.com/v3.1/all") 
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(element => {
-      let image = document.createElement('img')
-      image.src = element.flags.png
-      image.classList = "flag-images"
-      flagDisplay[0].append(image)
-    })
-  });
+// fetch("https://restcountries.com/v3.1/all") 
+//   .then(response => response.json())
+//   .then(data => {
+//     data.forEach(element => {
+//       let image = document.createElement('img')
+//       image.src = element.flags.png
+//       image.classList = "flag-images"
+//       flagDisplay[0].append(image)
+//     })
+//   });
 
 
 

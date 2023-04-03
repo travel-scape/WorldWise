@@ -217,10 +217,14 @@ font-size: larger;
 .flag-display {
   margin-top: 170px;
   width: fit-content;
+  /* background-color: #ccd5ae; */
+  margin-top: 170px;
+  width: fit-content;
 }
 
 .flag-images {
   height: 2em;
+  width: 3.5em;
   width: 3.5em;
   margin: 30px;
 }

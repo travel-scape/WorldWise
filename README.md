@@ -3,4 +3,4 @@ Together we built World Wise, an interactive website for learning, and respectin
 By Magdalena May Gero and Amber Lambright
 
 Wrbsite: https://travel-scape.github.io/WorldWise/
-Presentation https://docs.google.com/presentation/d/1Ds39WvJxMjFGlNrA_5mwjmG93gVeC8uTRuwCMnY_I_8/edit?usp=sharing
+Presentation: https://docs.google.com/presentation/d/1Ds39WvJxMjFGlNrA_5mwjmG93gVeC8uTRuwCMnY_I_8/edit?usp=sharing
